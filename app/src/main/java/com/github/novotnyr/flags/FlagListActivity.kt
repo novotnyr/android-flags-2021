@@ -14,5 +14,8 @@ class FlagListActivity : AppCompatActivity() {
 
         flagsRecyclerView = findViewById(R.id.flagsRecyclerView)
         flagsRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val flagListAdapter = FlagListAdapter()
+        flagsRecyclerView.adapter = flagListAdapter
     }
 }
