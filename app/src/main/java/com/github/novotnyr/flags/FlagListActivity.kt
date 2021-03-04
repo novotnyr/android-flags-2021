@@ -1,9 +1,10 @@
 package com.github.novotnyr.flags
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class FlagListActivity : AppCompatActivity() {
     lateinit var flagsRecyclerView: RecyclerView
@@ -17,5 +18,10 @@ class FlagListActivity : AppCompatActivity() {
 
         val flagListAdapter = FlagListAdapter()
         flagsRecyclerView.adapter = flagListAdapter
+
+        flagListAdapter.onFlagClick { flag ->
+            Snackbar.make(flagsRecyclerView, flag.country, Snackbar.LENGTH_SHORT)
+                    .show()
+        }
     }
 }
