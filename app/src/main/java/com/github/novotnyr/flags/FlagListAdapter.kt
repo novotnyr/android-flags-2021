@@ -19,6 +19,8 @@ class FlagListAdapter : RecyclerView.Adapter<FlagViewHolder>() {
         Flag("Ukraine", R.drawable.ukraine),
     )
 
+    private var flagClickListener = FlagClickListener {}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlagViewHolder {
         val layout = LayoutInflater.from(parent.context)
             .inflate(android.R.layout.simple_list_item_1, parent, false)
@@ -27,10 +29,14 @@ class FlagListAdapter : RecyclerView.Adapter<FlagViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FlagViewHolder, position: Int) {
-        holder.bind(flags[position])
+        holder.bind(flags[position], flagClickListener)
     }
 
     override fun getItemCount(): Int {
         return flags.size
+    }
+
+    fun onFlagClick(listener: FlagClickListener) {
+        flagClickListener = listener;
     }
 }
