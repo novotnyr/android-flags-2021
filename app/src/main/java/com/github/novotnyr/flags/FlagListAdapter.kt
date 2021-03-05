@@ -23,7 +23,7 @@ class FlagListAdapter : RecyclerView.Adapter<FlagViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlagViewHolder {
         val layout = LayoutInflater.from(parent.context)
-            .inflate(android.R.layout.simple_list_item_1, parent, false)
+            .inflate(android.R.layout.activity_list_item, parent, false)
 
         return FlagViewHolder(layout)
     }
