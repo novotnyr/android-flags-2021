@@ -21,6 +21,7 @@ class FlagListActivity : AppCompatActivity() {
 
         flagListAdapter.onFlagClick { flag ->
             val showFlagIntent = Intent(this, FlagDetailActivity::class.java)
+            showFlagIntent.putExtra("flag", flag)
             startActivity(showFlagIntent)
         }
     }

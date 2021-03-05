@@ -12,5 +12,11 @@ class FlagDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_flag_detail)
 
         flagImageView = findViewById(R.id.flagImageView)
+
+        val flag = intent.getSerializableExtra("flag")
+        if (flag is Flag) {
+            flagImageView.setImageResource(flag.flagResource)
+            title = flag.country
+        }
     }
 }
